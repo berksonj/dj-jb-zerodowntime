@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 
 class DjJbZerodowntimeConfig(AppConfig):
-    name = 'dj_jb_zerodowntime'
+    name = "dj_jb_zerodowntime"

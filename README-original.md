@@ -42,4 +42,3 @@ For Rentlytics employees, to release new code for the django-zerodowntime projec
 1. Setup pypi authentication for the `rentlytics` user, see [this link](http://peterdowns.com/posts/first-time-with-pypi.html)
 2. Run `bumpversion` to bump the version
 3. run `make release` to push the new code to PyPi
-
