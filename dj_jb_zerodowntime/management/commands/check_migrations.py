@@ -1,7 +1,7 @@
 from django.core.management import BaseCommand
 from django.db import connections
 
-from ...utils import MigrationConflict, UnsafeMigration, find_unsafe_migrations
+from dj_jb_zerodowntime.utils import MigrationConflict, UnsafeMigration, find_unsafe_migrations
 
 
 def print_unsafe_migration(migration):

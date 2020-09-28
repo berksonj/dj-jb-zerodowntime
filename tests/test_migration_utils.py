@@ -21,10 +21,17 @@ from dj_jb_zerodowntime import utils as migration_utils
 
 class MigrationUtilsTestCase(TestCase):
     def setUp(self):
+        # settings.INSTALLED_APPS.append("tests.safe_migrations")
+
+        # self.reinitialize_django_apps()
+
         settings.INSTALLED_APPS = [
-            "apps.utils.zerodowntime.apps.ZerodowntimeConfig",
-            "apps.utils.zerodowntime.tests.safe_migrations",
+            "dj_jb_zerodowntime",
+            "tests.safe_migrations",
         ]
+
+    def tearDown(self):
+        settings.INSTALLED_APPS.remove("tests.safe_migrations")
 
         self.reinitialize_django_apps()
 
@@ -91,7 +98,7 @@ class MigrationUtilsTestCase(TestCase):
 
         assert len(result) == 0
 
-        self.add_django_app("apps.utils.zerodowntime.tests.unsafe_migrations")
+        self.add_django_app("tests.unsafe_migrations")
 
         result = migration_utils.find_unsafe_migrations(conn)
         assert len(result) == 2
@@ -108,7 +115,7 @@ class MigrationUtilsTestCase(TestCase):
 
     def test_find_migration_conflicts(self):
         conn = connections[DEFAULT_DB_ALIAS]
-        self.add_django_app("apps.utils.zerodowntime.tests.conflicting_migrations")
+        self.add_django_app("tests.conflicting_migrations")
 
         result = migration_utils.find_unsafe_migrations(conn)
 
