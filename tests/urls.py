@@ -6,5 +6,4 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('dj_jb_zerodowntime.urls', namespace='dj_jb_zerodowntime')),
 ]
