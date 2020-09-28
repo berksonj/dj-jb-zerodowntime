@@ -1,0 +1,60 @@
+exclude: "theme/static/vendor"
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: check-added-large-files
+        args:
+          - --maxkb=256
+      - id: check-builtin-literals
+      - id: check-byte-order-marker
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+      - id: check-xml
+      - id: debug-statements
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+
+  - repo: https://github.com/motet-a/jinjalint
+    rev: '01e0a4d8f1ee775aee00eb9d715eff2b4cc49e4d'
+    hooks:
+      - id: jinjalint
+        types: [file]  # restore the default `types` matching
+        files: \.(html)$
+        exclude: 'theme/templates/pages/emails/_base.html'
+        args: ["--config", "jinjalint.py"]
+
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.3
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.6.2
+    hooks:
+      - id: bandit
+        args: ["-iii", "-ll"]
+
+  - repo: https://github.com/asottile/seed-isort-config
+    rev: v2.2.0
+    hooks:
+      - id: seed-isort-config
+
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.4.2
+    hooks:
+      - id: isort
+
+  - repo: https://github.com/psf/black
+    rev: 20.8b1
+    hooks:
+      - id: black
+        args: [--line-length=99]
