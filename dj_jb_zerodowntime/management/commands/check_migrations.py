@@ -49,6 +49,11 @@ class Command(BaseCommand):
 
             exit(len(unsafe_migrations))
 
+        print(
+            "No Issues Found: All unapplied migrations are compatible with a "
+            "zero-downtime continuous delivery deployment."
+        )
+
     # noinspection PyMethodMayBeStatic
     def print_error_report(self, unsafe_migrations):
         print("These operations are incompatible with Zero Downtime Deployments:")
