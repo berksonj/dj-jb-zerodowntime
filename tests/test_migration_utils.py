@@ -21,17 +21,10 @@ from dj_jb_zerodowntime import utils as migration_utils
 
 class MigrationUtilsTestCase(TestCase):
     def setUp(self):
-        # settings.INSTALLED_APPS.append("tests.safe_migrations")
-
-        # self.reinitialize_django_apps()
-
         settings.INSTALLED_APPS = [
             "dj_jb_zerodowntime",
             "tests.safe_migrations",
         ]
-
-    def tearDown(self):
-        settings.INSTALLED_APPS.remove("tests.safe_migrations")
 
         self.reinitialize_django_apps()
 
