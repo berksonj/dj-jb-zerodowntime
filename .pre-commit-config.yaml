@@ -22,6 +22,8 @@ repos:
       - id: end-of-file-fixer
       - id: mixed-line-ending
       - id: trailing-whitespace
+        types: [file]  # restore the default `types` matching
+        exclude: 'setup.cfg'
 
   - repo: https://github.com/motet-a/jinjalint
     rev: '01e0a4d8f1ee775aee00eb9d715eff2b4cc49e4d'
