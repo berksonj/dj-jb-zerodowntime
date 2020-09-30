@@ -60,10 +60,3 @@ repos:
     hooks:
       - id: black
         args: [--line-length=99]
-
-  - repo: https://github.com/gitguardian/gg-shield
-    rev: main
-    hooks:
-      - id: ggshield
-        language_version: python3
-        stages: [commit]
